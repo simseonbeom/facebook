@@ -11,6 +11,7 @@ window.addEventListener('DOMContentLoaded',function(){
         const leftBox = document.querySelector('.left_box');
         const save = document.querySelector('#save');
         const friends = document.querySelector('#friends');
+        const close = document.querySelector('.close');
 
 
 
@@ -58,8 +59,17 @@ window.addEventListener('DOMContentLoaded',function(){
 
         }
 
+
+
+        function closeFunc(e){
+            console.log();
+            this.parentNode.remove();
+        }
+
         leftBox.addEventListener('click',clickFunc);
 
+
+        close.addEventListener('click',closeFunc);
 
 
         window.addEventListener('resize',resizeFunc);
