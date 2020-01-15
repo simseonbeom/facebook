@@ -198,7 +198,7 @@
                     </div>
 
                     <div class="btn_container">
-                        <div class="like-btn"><span class="icon icon--like-line"></span>좋아요</div>
+                        <div class="like-btn" data-name="like"><span class="icon icon--like-line"></span>좋아요</div>
                         <div class="comment-btn"><span class="icon icon--comment-line"></span>댓글</div>
                     </div>
 
@@ -762,14 +762,14 @@
                 </div>
 
                 <div class="btn_container">
-                    <div class="active" data-name="chart01">차트1</div>
-                    <div data-name="chart02">차트2</div>
+                    <div class="active" data-name="chart01">좋아요</div>
+                    <div data-name="chart02">게시물</div>
                     <div data-name="chart03">차트3</div>
                 </div>
 
                 <div class="chart_container">
                     <div class="chart01 active">
-                        <canvas id="chart01"></canvas>
+                        <canvas id="chart01" height="300"></canvas>
                     </div>
 
                     <div class="chart02">
@@ -928,6 +928,7 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="js/chart_list.js"></script>
 <script src="js/main.js"></script>
 </body>

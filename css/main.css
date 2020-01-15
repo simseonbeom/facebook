@@ -278,6 +278,9 @@
     margin:0 10px;
 }
 
+.contents .btn_container .like-btn.active  span{
+    background: url('../imgs/bg05.png') no-repeat 0 -422px;
+}
 
 .contents .btn_container > div{
     flex: 1;
@@ -423,7 +426,8 @@
     display: block;
 }
 .right_box .chart_container > div{
-    /*display: none;*/
+    display: none;
+    /*height:300px;*/
 }
 
 
