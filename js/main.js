@@ -81,38 +81,30 @@ window.addEventListener('DOMContentLoaded',function(){
 
 
 
-            }else if (elem.matches('[data-name="comment"]')) {
+            }else if (elem.matches('[data-name="delete"]')) {
 
+                if(confirm('정말 삭제할거야?') === true){
 
-                // let content = document.querySelector('#add-comment-post37>input[type=text]').value;
-                //
-                // console.log(content);
-                //
-                // if(content.length > 140){
-                //     alert('댓글은 최대 140자 입력 가능합니다. 현재 글자수 : ' + content.length);
-                //     return;
-                // }
-                //
-                //
-                // $.ajax({
-                //
-                //     type:'POST',
-                //     url:'data/comment.html',
-                //     data:{
-                //         'pk' : 37,
-                //         'content':content,
-                //     },
-                //     dataType:'html',
-                //     success:function(data){
-                //         document.querySelector('#comment-list-ajax-post37').insertAdjacentHTML('afterbegin',data);
-                //     },
-                //     error:function(request,status,error){
-                //         alert('문제가 발생했습니다.');
-                //
-                //     }
-                // });
-                //
-                // document.querySelector('#add-comment-post37>input[type=text]').value = '';
+                    $.ajax({
+                        type:'POST',
+                        url:'data/delete.json',
+                        data:{
+                            'pk':37,
+                        },
+                        dataType:'json',
+                        success:function(response){
+                            if(response.status){
+                                let comt = document.querySelector('.comment-37');
+                                comt.remove();
+                            }
+                        },
+                        error:function(request,status,error){
+                            alert('문제가 발생했습니다.');
+
+                        }
+                    });
+                }
+
 
             }
 
@@ -231,9 +223,46 @@ window.addEventListener('DOMContentLoaded',function(){
 
         }
 
+        const txt = document.querySelector('#comment37');
 
 
 
+        txt.addEventListener('keypress',function(e){
+            console.log(e.code);
+            let content =  txt.value;
+            console.log(content);
+
+            if(e.code === 'Enter') {
+
+                if(content.length > 140){
+                    alert('댓글은 최대 140자 입력 가능합니다. 현재 글자수 : ' + content.length);
+                    return;
+                }
+
+
+                $.ajax({
+
+                    type:'POST',
+                    url:'data/comment.html',
+                    data:{
+                        'pk' : 37,
+                        'content':content,
+                    },
+                    dataType:'html',
+                    success:function(data){
+                        document.querySelector('.comment_container').insertAdjacentHTML('beforeend',data);
+                    },
+                    error:function(request,status,error){
+                        alert('문제가 발생했습니다.');
+
+                    }
+                });
+
+                txt.value = '';
+            }
+
+
+        });
 
         chart_btn.addEventListener('click',chartFunc);
         bell.addEventListener('click',noticeFunc);

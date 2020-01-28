@@ -302,7 +302,17 @@
 .contents .comment_container .id{
     display: flex;
     margin-bottom: 10px;
+    align-items:  center;
 }
+
+
+.contents .comment_container .delete{
+    margin-left: auto;
+    cursor: pointer;
+}
+
+
+
 
 .contents .comment_container .text_container{
     display: flex;
