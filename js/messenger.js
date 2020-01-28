@@ -58,7 +58,12 @@ window.addEventListener('DOMContentLoaded',function(){
         txt.addEventListener('keypress',function(e){
             console.log(e.code);
 
+
+
+
+
             if(e.code === 'Enter'){
+
 
 
                 let template = `
@@ -75,6 +80,8 @@ window.addEventListener('DOMContentLoaded',function(){
                 feed.insertAdjacentHTML('beforeend',template);
                 txt.value = '';
 
+
+                feed.scrollTop = feed.scrollHeight;
 
             }
 
