@@ -87,7 +87,7 @@
 /*---------//left_box--------*/
 
 #contents_container {
-    width: 500px;
+    max-width: 500px;
     /*height: 5000px;*/
     position: relative;
     left: 190px;
@@ -135,6 +135,7 @@
     padding: 8px;
 }
 
+
 .create_box .title {
     color: #4b4f56;
     font-size: 12px;
@@ -163,10 +164,23 @@
     margin-right: 20px;
 }
 
-.create_box .text_field input {
+.create_box .top > p{
+    width: 100%;
+}
+.create_box #text_field{
+    border: none;
+    height: 24px;
+    width: 100%;
+}
+.create_box .text_field .middle{
 
 }
 
+.create_box .text_field .middle .box{
+    width: 100px;
+    height: 100px;
+    background: red;
+}
 
 .create_box .text_field .bottom {
     font-size: 12px;
@@ -189,7 +203,38 @@
     background: #e3e3e3;
 }
 
-/*---------//create_box--------*/
+#id_photo{
+    display: none;
+}
+#photo_label{
+    display: flex;
+    align-items: center;
+}
+
+.create_box .text_field .submit{
+    border-top: 1px solid #dddfe2;
+    text-align: center;
+    padding: 5px 10px;
+    display: none;
+
+}
+
+.create_box .text_field .submit > input{
+    width: 100%;
+    height: 28px;
+    border-radius: 3px;
+    background: #4267b2;
+    color: #fff;
+    font-weight: bold;
+    cursor:pointer;
+}
+
+.create_box .text_field .submit > input:disabled{
+    background: #9cb4d8;
+}
+
+/*.create_box .text_field .submit > input*/
+    /*---------//create_box--------*/
 
 
 
@@ -577,6 +622,26 @@
 
     #header .inner{
         width: 90%;
+    }
+
+
+}
+
+@media screen and (max-width:800px){
+
+    #header .inner .left{
+        display:none;
+    }
+
+    #header .inner .right{
+        width: 100%;
+        justify-content: space-between;
+    }
+    #header .inner .right .question{
+        margin-right: 20px;
+    }
+    #header .inner .right > div:after{
+        display: none;
     }
 
 

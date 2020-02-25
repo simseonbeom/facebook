@@ -145,7 +145,8 @@
         <div class="inner">
             <div class="left_box">
                 <div class="my_name">
-                    <a href="#">
+
+                    <a href="index.html">
                         <div class="profile_img"><img src="imgs/profile/tiger.png" alt=""></div>
                         <span class="name">심심</span>
                         <span class="icon--more"></span>
@@ -157,18 +158,35 @@
                     <li><a href="save.html"><span class="icon icon--save"></span>저장됨 <span class="icon--more"></span></a></li>
                 </ul>
             </div>
-
             <section id="contents_container">
                 <article class="create_box">
                     <h2 class="title">게시물 만들기</h2>
                     <div class="text_field">
-                        <div class="top">
-                            <div class="profile_img"><img src="imgs/profile/tiger.png" alt=""></div>
-                            <div><span>심심님, 무슨 생각을 하고 계신가요?</span></div>
-                        </div>
-                        <div class="bottom">
-                            <div class="import-btn"><span class="icon icon--picture"></span>사진/동영상</div>
-                        </div>
+
+                        <form action="">
+
+                            <div class="top">
+                                <div class="profile_img"><img src="imgs/profile/tiger.png" alt=""></div>
+<!--                                <div><span>심심님, 무슨 생각을 하고 계신가요?</span></div>-->
+                                <p>
+                                      <textarea name="content" id="text_field" cols="50" rows="5" data-name="add" placeholder="심심님, 무슨 생각을 하고 계신가요?"></textarea>
+                                </p>
+                            </div>
+                            <div class="middle">
+                                <canvas id="imageCanvas" width="0" height="0"></canvas>
+                            </div>
+                            <div class="bottom">
+                                <input type="file" name="photo" id="id_photo" required="required">
+
+                                <div class="import-btn">
+                                    <label for="id_photo" id="photo_label"><span class="icon icon--picture"></span>사진/동영상</label>
+                                </div>
+                            </div>
+                            <div class="submit">
+                                <input type="submit" id="submitBtn" value="게시" disabled>
+                            </div>
+
+                        </form>
                     </div>
                 </article>
 
@@ -301,7 +319,7 @@
 
 
 
-                <input type="hidden" id="page">
+                <input type="hidden" id="page" value="0">
             </section>
 
             <div class="right_box">
@@ -470,15 +488,6 @@
     </div>
 
 
-    <!--    <div id="detail_card">-->
-    <!--        <i class="icon&#45;&#45;arrow-right"></i>-->
-    <!--        <div class="rect_img"><img src="imgs/profile/ho.jpg" alt=""></div>-->
-    <!--        <div>-->
-    <!--            <div class="name">이호준</div>-->
-    <!--            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, quas.</p>-->
-    <!--        </div>-->
-    <!--    </div>-->
-
 </section>
 
 
@@ -486,5 +495,6 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="js/chart_list.js"></script>
 <script src="js/main.js"></script>
+<script src="js/new_post.js"></script>
 </body>
 </html>

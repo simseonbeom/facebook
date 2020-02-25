@@ -20,6 +20,7 @@ window.addEventListener('DOMContentLoaded',function(){
         const noticeBoard = document.querySelector('#header .notice');
         const sideBox = document.querySelectorAll('#side_box > ul > li');
         const detailCard = document.querySelector('#detail_card');
+        const submit  = document.querySelector( "#submitBtn" );
 
 
 
@@ -42,6 +43,7 @@ window.addEventListener('DOMContentLoaded',function(){
 
         function delegation(e){
             let elem = e.target;
+            e.stopPropagation();
 
             console.log(elem);
 
@@ -106,10 +108,20 @@ window.addEventListener('DOMContentLoaded',function(){
                 }
 
 
+            }else if (elem.matches('[data-name="add"]')) {
+
+
+                console.log('ddd');
+                submit.disabled = false;
+                submit.parentNode.style.display = 'block';
+
+            }else{
+
             }
 
 
         }
+
 
 
 
@@ -147,7 +159,8 @@ window.addEventListener('DOMContentLoaded',function(){
         }
 
 
-        function noticeFunc(){
+        function noticeFunc(e){
+            e.stopPropagation();
             this.classList.toggle('on');
 
             if(this.classList.contains('on')){
@@ -156,7 +169,6 @@ window.addEventListener('DOMContentLoaded',function(){
                 noticeBoard.style.display = 'none';
             }
         }
-
 
 
 
@@ -272,7 +284,15 @@ window.addEventListener('DOMContentLoaded',function(){
         window.addEventListener('scroll',scrollFunc);
         window.addEventListener('resize',resizeFunc);
 
+        document.body.addEventListener('click',(e)=>{
+            submit.parentNode.style.display = 'none';
+            submit.disabled = true;
 
+
+            noticeBoard.style.display = 'none';
+            bell.classList.remove('on');
+
+        });
 
 
 
