@@ -21,6 +21,7 @@ window.addEventListener('DOMContentLoaded',function(){
         const sideBox = document.querySelectorAll('#side_box > ul > li');
         const detailCard = document.querySelector('#detail_card');
         const submit  = document.querySelector( "#submitBtn" );
+        const more  = document.querySelector( ".contents .more" );
 
 
 
@@ -106,6 +107,14 @@ window.addEventListener('DOMContentLoaded',function(){
                         }
                     });
                 }
+
+
+            }else if (elem.matches('[data-name="more"]')) {
+
+                elem.classList.toggle('active');
+
+
+
 
 
             }else if (elem.matches('[data-name="add"]')) {
@@ -288,6 +297,7 @@ window.addEventListener('DOMContentLoaded',function(){
             submit.parentNode.style.display = 'none';
             submit.disabled = true;
 
+            more.classList.remove('active');
 
             noticeBoard.style.display = 'none';
             bell.classList.remove('on');
