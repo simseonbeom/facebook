@@ -23,6 +23,7 @@ window.addEventListener('DOMContentLoaded',function(){
         const submit  = document.querySelector( "#submitBtn" );
         const textField = document.querySelector('#text_field');
         const more  = document.querySelector( ".contents .more" );
+        // const send  = document.querySelector( ".send" );
 
 
 
@@ -110,6 +111,29 @@ window.addEventListener('DOMContentLoaded',function(){
                 }
 
 
+            }else if (elem.matches('[data-name="send"]')) {
+                let content =  txt.value;
+                $.ajax({
+
+                    type:'POST',
+                    url:'data/comment.html',
+                    data:{
+                        'pk' : 37,
+                        'content':content,
+                    },
+                    dataType:'html',
+                    success:function(data){
+                        document.querySelector('.comment_container').insertAdjacentHTML('beforeend',data);
+                    },
+                    error:function(request,status,error){
+                        alert('문제가 발생했습니다.');
+
+                    }
+                });
+
+                txt.value = '';
+
+
             }else if (elem.matches('[data-name="more"]')) {
 
                 elem.classList.toggle('active');
@@ -140,35 +164,6 @@ window.addEventListener('DOMContentLoaded',function(){
 
 
 
-        //
-        // function chartFunc(e){
-        //     console.log(e.target.dataset);
-        //
-        //     let elem = e.target;
-        //
-        //
-        //     for(let i=0;i<3;i++){
-        //         btnAll[i].classList.remove('active');
-        //         chartAll[i].classList.remove('active');
-        //     }
-        //
-        //     elem.classList.add('active');
-        //
-        //     if( elem.dataset.name === 'chart01'){
-        //         console.log('1번');
-        //         chartAll[0].classList.add('active');
-        //
-        //     }else if( elem.dataset.name === 'chart02'){
-        //         console.log('2번');
-        //         chartAll[1].classList.add('active');
-        //
-        //     }else if( elem.dataset.name === 'chart03'){
-        //         console.log('3번');
-        //         chartAll[2].classList.add('active');
-        //     }
-        //
-        //
-        // }
 
 
         function noticeFunc(e){
